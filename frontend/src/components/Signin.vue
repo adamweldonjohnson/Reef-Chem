@@ -2,11 +2,30 @@
 <div id="app">
   <h1>Signin</h1>
   <router-link :to="{ name: 'Home'}">Home</router-link>
+  <div id="firebaseui-auth-container"></div>
 </div>
 </template>
 
 <script>
-export default {}
+import firebase from 'firebase';
+import firebaseui from 'firebaseui'
+import {
+  config
+} from '../helpers/firebaseConfig';
+export default {
+  name: 'auth',
+  mounted() {
+    var uiConfig = {
+      signInSuccessUrl: '/success',
+      signInOptions: [
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        firebase.auth.EmailAuthProvider.PROVIDER_ID
+      ]
+    };
+    var ui = new firebaseui.auth.AuthUI(firebase.auth());
+    ui.start('#firebaseui-auth-container', uiConfig);
+  },
+}
 </script>
 
 <style lang="scss">

@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import App from './App.vue'
 import Home from './components/Home.vue'
 import Signin from './components/Signin.vue'
+import Dashboard from './components/Dashboard.vue'
 
 const router = new VueRouter({
   mode: 'history',
@@ -15,6 +16,11 @@ const router = new VueRouter({
       path: '/signin',
       name: 'Signin',
       component: Signin
+    },
+    {
+      path: '/dashboard',
+      name: 'Dashboard',
+      component: Dashboard
     }
   ]
 })
