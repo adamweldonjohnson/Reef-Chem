@@ -7,6 +7,7 @@ import router from './router.js'
 import {
   config
 } from './helpers/firebaseConfig'
+import bulma from 'bulma'
 
 Vue.use(VueRouter)
 
