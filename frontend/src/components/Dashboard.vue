@@ -1,7 +1,7 @@
 <template>
 <div>
-  <h1>Dashboard</h1>
-  <button @click="logOut">Log out</button>
+  <h1 class="is-size-1">Dashboard</h1>
+  <a class="button is-danger is-pulled-right" @click="logOut">Log out</a>
   <div class="card">
     <div class="card-image">
       <figure class="image is-4by3">
