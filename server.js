@@ -18,8 +18,15 @@ app.use(cors());
 
 
 // ====================API ENDPOINTS======================
+// TODO: for testing only
 app.get('/', (req, res) => {
   res.send('works');
+})
+// TODO: for testing only
+app.post('/dashboard', (req, res) => {
+  let data = req.body;
+  let user = data.user
+  res.send(data);
 })
 
 

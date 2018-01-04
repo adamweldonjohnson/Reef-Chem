@@ -9,7 +9,7 @@ let testSchema = mongoose.Schema({
     trim: true,
     minLength: 1
   },
-  // Alkalinity - may seem like duplicate of pH, but measures buttering ability of water.
+  // Alkalinity - may seem like duplicate of pH, but measures buffering ability of water.
   Alk: {
     type: Number,
     required: false,
@@ -114,18 +114,21 @@ let testSchema = mongoose.Schema({
     trim: true,
     minLength: 1
   },
+  // Associates test battery data with specific date
   date: {
     type: Date,
     required: false,
     trim: true,
     minLength: 1
   },
+  // Associates data with specific user.
   userId: {
     type: Number,
     required: false,
     trim: true,
     minLength: 1
   },
+  // Associates test data with specific tank
   tankId: {
     type: Mixed, // TODO: find out if  tank id is mixed
     required: true,
