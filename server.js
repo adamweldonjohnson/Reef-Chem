@@ -25,8 +25,15 @@ app.get('/', (req, res) => {
 // TODO: for testing only
 app.post('/dashboard', (req, res) => {
   let data = req.body;
-  let user = data.user
-  res.send(data);
+  let userID = data.user;
+  let test = data.test;
+  let day = data.day;
+  let month = data.month;
+  let year = data.year;
+  let value = data.value;
+  console.log(req.body);
+  // console.log(user);
+  res.send('you sent me this data: ' + test + ' ' + day + ' ' + month + ' ' + year + ' and your user ID is ' + userID);
 })
 
 

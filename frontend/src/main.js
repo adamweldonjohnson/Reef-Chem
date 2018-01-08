@@ -11,11 +11,13 @@ import bulma from 'bulma'
 import Charts from 'chart.js'
 import Chartkick from 'chartkick'
 import VueChartkick from 'vue-chartkick'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
+Vue.use(VueAxios, axios)
 Vue.use(VueChartkick, {
   Chartkick
 })
-
 Vue.use(VueRouter)
 
 new Vue({
