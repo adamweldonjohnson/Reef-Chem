@@ -2,17 +2,15 @@
 <div>
   <nav class="navbar is-dark">
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://bulma.io">
-      <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
-    </a>
-      <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+      <a class="navbar-item" href="https://bulma.io"><img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28"></a>
+      <div class="navbar-burger burger" data-target="navbarFullscreen">
         <span></span>
         <span></span>
         <span></span>
       </div>
     </div>
 
-    <div class="navbar-menu">
+    <div class="navbar-menu" id="navbarFullscreen">
       <div class="navbar-start">
         <div class="navbar-item">
           <div class="field is-grouped">
@@ -38,48 +36,39 @@
       </div>
     </div>
   </nav>
-  <a class="button is-danger is-pulled-right">Log out</a>
   <div class="card">
-    <div class="card-image">
-      <figure class="image is-4by3">
-        <img src="https://images.pexels.com/photos/731141/pexels-photo-731141.jpeg?w=940&h=650&auto=compress&cs=tinysrgb" alt="Scuba Santa">
-      </figure>
-    </div>
-    <div class="card-content">
-      <div class="media">
-        <div class="media-left">
-          <figure class="image is-48x48">
-            <img :src="this.photo" alt="Placeholder image">
-          </figure>
-        </div>
-        <div class="media-content">
-          <p class="title is-4">{{name}}</p>
-          <p class="subtitle is-6">{{email}}</p>
-        </div>
-      </div>
-
-      <div class="content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-        <a href="#">#css</a> <a href="#">#responsive</a>
-        <br>
-        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-      </div>
-    </div>
+    <line-chart :data="testData">test</line-chart>
   </div>
 </div>
 </template>
 
 <script>
 import firebase from 'firebase'
-import chart from 'chart.js'
+
+
 export default {
+  components: {},
   data() {
     return {
       photo: '',
       userId: '',
       name: '',
       email: '',
-      user: {}
+      user: {},
+      testData: [
+        ['Jan', 44],
+        ['Feb', 27],
+        ['Mar', 60],
+        ['Apr', 55],
+        ['May', 37],
+        ['Jun', 40],
+        ['Jul', 69],
+        ['Aug', 33],
+        ['Sept', 76],
+        ['Oct', 90],
+        ['Nov', 34],
+        ['Dec', 22]
+      ]
     }
   },
   created() {

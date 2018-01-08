@@ -8,6 +8,13 @@ import {
   config
 } from './helpers/firebaseConfig'
 import bulma from 'bulma'
+import Charts from 'chart.js'
+import Chartkick from 'chartkick'
+import VueChartkick from 'vue-chartkick'
+
+Vue.use(VueChartkick, {
+  Chartkick
+})
 
 Vue.use(VueRouter)
 
