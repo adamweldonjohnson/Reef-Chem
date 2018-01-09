@@ -221,9 +221,6 @@
         </div>
       </div>
 
-      <div class="tile is-child card">
-        Delete
-      </div>
     </div>
 
     <div class="tile is-parent is-vertical">
