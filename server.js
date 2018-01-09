@@ -5,12 +5,18 @@ const express = require('express');
 // Parses requests from frontend
 const bodyParser = require('body-parser');
 // For connecting db
-const mongoose = require('./db/mongoose');
+const db = require('./db/mongoose');
+// For loading files
+const fs = require('fs');
 // For running front and backend servers in local environment
 const cors = require('cors');
+// Grabbing test Schema
+const Test = require('./models/testSchema');
 
 // Required per Express.js documentation
 let app = express();
+
+
 
 // Required per Body Parser & CORS documentation
 app.use(bodyParser.json());
@@ -24,16 +30,30 @@ app.get('/', (req, res) => {
 })
 // TODO: for testing only
 app.post('/dashboard', (req, res) => {
-  let data = req.body;
-  let userID = data.user;
-  let test = data.test;
-  let day = data.day;
-  let month = data.month;
-  let year = data.year;
-  let value = data.value;
-  console.log(req.body);
-  // console.log(user);
-  res.send('you sent me this data: ' + test + ' ' + day + ' ' + month + ' ' + year + ' and your user ID is ' + userID);
+  Test.create(req.body)
+    .then((test) => {
+      res.send(test)
+    });
+})
+
+app.get('/dashboard/:userId', (req, res) => {
+  // console.log(req.params.userId);
+  Test.find({
+    userId: req.params.userId
+  }, (err, tests) => {
+    res.send(tests)
+  })
+})
+
+app.post('/dashboard/:userId', (req, res) => {
+  // console.log(req.params.userId);
+  Test.find({
+    userId: req.params.userId,
+    value: req.body.value,
+    type: req.body.type,
+  }, (err, tests) => {
+    res.send(tests)
+  })
 })
 
 

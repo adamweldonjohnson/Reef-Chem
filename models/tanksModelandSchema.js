@@ -12,7 +12,7 @@ let tanksSchema = mongoose.Schema({
     // Prevents erroneous characters
     trim: true,
     // Requires a minimum length of two characters in the name, allows for names such as 'Po', but not single letters
-    minLength: 2
+    minLength: 2,
     // Provides default name for display purposes (which the user will be able to later edit) in case the user does not choose to input a value.
     default: 'My Aquarium'
   },
@@ -30,7 +30,7 @@ let tanksSchema = mongoose.Schema({
   // Storing the user ID for association with test data.
   userId: {
     // TODO: find out if type needs to be mixed or objectID. Unclear if OBJID is valid.
-    type: Mixed,
+    type: String,
     // Required to allow association of test data with specific tank and user
     required: true,
     // Trimmed
