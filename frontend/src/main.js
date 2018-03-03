@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
-import firebase from 'firebase'
-import firebaseui from 'firebaseui';
+import firebase from 'firebase';
+import firebaseui from 'firebaseui'
 import router from './router.js'
 import {
   config
@@ -14,11 +14,13 @@ import VueChartkick from 'vue-chartkick'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
+
 Vue.use(VueAxios, axios)
 Vue.use(VueChartkick, {
   Chartkick
 })
 Vue.use(VueRouter)
+
 
 new Vue({
   router,

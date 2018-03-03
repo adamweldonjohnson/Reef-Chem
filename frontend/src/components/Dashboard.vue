@@ -2,7 +2,7 @@
 <div>
   <nav class="navbar is-dark">
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://bulma.io"><img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28"></a>
+      <a class="navbar-item"><img src="../assets/goldfish.png" alt="Bulma: a modern CSS framework based on Flexbox" width="70" height="50">ReefChem</a>
       <div class="navbar-burger burger" data-target="navbarFullscreen">
         <span></span>
         <span></span>
@@ -27,7 +27,7 @@
           <div class="field is-grouped">
 
             <p class="control">
-              <a class="button is-danger" @click="logOut">
+              <a class="button is-danger" @click="logOut()">
               <span>Log out</span>
             </a>
             </p>
@@ -260,6 +260,9 @@
       </div>
     </div>
   </div>
+  <section class="footer">
+    <p>&copy; 2017 I'd Love an Interview</p>
+  </section>
 </div>
 </template>
 
@@ -297,6 +300,7 @@ export default {
   created() {
     this.user = firebase.auth().currentUser;
     if (this.user) {
+      console.log(this.user);
       this.name = this.user.displayName;
       this.email = this.user.email;
       this.photo = this.user.photoURL;
@@ -346,6 +350,7 @@ export default {
   methods: {
     logOut() {
       firebase.auth().signOut();
+      this.$router.push('/signin');
     },
 
     dataSubmit() {
@@ -370,8 +375,6 @@ export default {
           console.log(error);
         });
     },
-
-    cancel() {},
 
     searchSubmit() {
 
@@ -437,8 +440,7 @@ export default {
 }
 
 .is-ancestor {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    padding: 1.5rem 1.5rem 1.5rem 1rem;
 }
 
 .list {
@@ -471,5 +473,11 @@ export default {
 
 .rlink:hover {
     color: #35dcf2;
+}
+.footer {
+    padding: 0.5rem;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
 }
 </style>
